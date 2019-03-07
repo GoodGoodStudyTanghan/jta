@@ -16,6 +16,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
+import javax.sql.XADataSource;
 
 /**
  * 以MySQL作为主数据源
@@ -34,10 +35,8 @@ public class MySQLDataSourceConfig {
     public DataSource primaryDataSource(@Qualifier("mysqlDataConfig") MySQLDataConfig dataConfig) throws Exception{
         MysqlXADataSource mysqlXaDataSource = new MysqlXADataSource();
         mysqlXaDataSource.setUrl(dataConfig.getUrl());
-        mysqlXaDataSource.setPinGlobalTxToPhysicalConnection(true);
         mysqlXaDataSource.setPassword(dataConfig.getPassword());
         mysqlXaDataSource.setUser(dataConfig.getUsername());
-        mysqlXaDataSource.setPinGlobalTxToPhysicalConnection(true);
 
         AtomikosDataSourceBean xaDataSource = new AtomikosDataSourceBean();
         xaDataSource.setXaDataSource(mysqlXaDataSource);
