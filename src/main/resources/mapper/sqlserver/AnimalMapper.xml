@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.tanghan.jtams.dao.sqlserver.AnimalMapper">
+	<select id="queryAnimalList" resultType="Animal">
+		select *
+		from animal
+	</select>
+	<insert id="addAnimal" parameterType="Animal">
+		insert into animal values(#{id}, #{name})
+	</insert>
+</mapper>

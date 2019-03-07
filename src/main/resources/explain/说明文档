@@ -1,0 +1,11 @@
+SQL Server2008版本配置多数据源
+1、将sqljdbc_auth.dll（x64/x86）放入windows\system32中
+2、将sqljdbc_xa.dll（x64/x86）放入C:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\Binn
+3、打开xa_install.sql，并执行
+
+1、单击“开始”按钮，单击“运行”，在“打开”框中键入dcomcnfg，然后按“确定”打开“组件服务”
+2、展开“组件服务”“计算机”"Distribute Transaction Coordinator"，右键单击“本地DTC”，然后选择“属性”
+3、单击“安全”选项卡，再单击“启用XA事务”
+4、然后单击“确定”。这将使 MS DTC 服务重新启动
+5、再次单击“确定”以关闭“属性”对话框，然后关闭“组件服务”
+6、停止 SQL Server，然后重新启动
